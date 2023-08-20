@@ -1,6 +1,14 @@
-import { SafeAreaView, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+  Image
+} from 'react-native';
+
 import { COLOR_PRIMARY, COLOR_SECOND, COLOR_WHITE } from '../constants/colors';
-import LogoImg from '../../assets/logo_fere_medical.svg';
+import LogoImg from '../../assets/logo_officiel_fere_medical.png';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export const OnBoardingScreen = ({navigation}) => {
@@ -8,20 +16,33 @@ export const OnBoardingScreen = ({navigation}) => {
         <SafeAreaView style={styles.safeAreaStyle}>
           <View style={{marginTop: 20}}>
             <Text style={styles.textStyle}>Gestionnaire médical</Text>
-            <Text style={{...styles.textStyle, marginTop: 20, fontSize: 30}}>FERE MEDICAL</Text>
+            <Text style={{
+              ...styles.textStyle,
+              marginTop: 50,
+              fontSize: 12,
+              fontWeight: 'bold',
+              fontStyle: 'italic',
+              textTransform: 'uppercase',
+              paddingHorizontal: 20,
+              textAlign: 'center',
+              color: COLOR_SECOND
+            }}>
+              Ensemble, sauvons des vies avec fere medical
+            </Text>
           </View>
           <View style={styles.logoStyles}>
-            <LogoImg width={200} height={200} />
+            <Image source={LogoImg} style={{ width: 200, height: 200, resizeMode: 'contain'}} />
+            {/* <LogoImg width={200} height={200} /> */}
           </View>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.touchableOpacityStyle}
             onPress={() => navigation.navigate('Login')}
           >
-            <Text 
+            <Text
               style={{
-                fontWeight: 'bold', 
-                fontSize: 20, 
-                color: COLOR_WHITE, 
+                fontWeight: 'bold',
+                fontSize: 20,
+                color: COLOR_WHITE,
                 fontStyle: 'italic',
               }}>Allons-y !</Text>
             <Ionicons name="chevron-forward-outline" size={20} color={COLOR_WHITE}/>
@@ -56,6 +77,6 @@ const styles = StyleSheet.create({
     logoStyles: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center' 
+        alignItems: 'center'
     }
 });
